@@ -16,6 +16,7 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   exposed-modules:     Watson.NaturalLanguageClassifier
+                     , Watson.RelationshipExtraction
   other-modules:       Watson.Util.Multipart
   build-depends:       base >= 4.7 && < 5
                      , aeson
@@ -23,9 +24,11 @@ library
                      , bytestring >= 0.10.6.0 && < 0.11
                      , http-client >= 0.4.27 && < 0.5
                      , http-types >= 0.9 && < 0.10
+                     , lens
                      , servant >= 0.4.4.7 && < 0.8
                      , text >= 1.2.2.1
                      , transformers >= 0.4.2.0 && < 0.5
+                     , wreq
   default-language:    Haskell2010
 
 test-suite watson-sdk-test
