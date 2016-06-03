@@ -55,9 +55,10 @@ clfClassify :: NLC
             -> Text
             -> IO (Either (APIError ()) ClassifierOutput)
 clfClassify (NLC builder) clf text =
-  let route = Route [ "classifiers", classifierId clf, "classify" ] [] "POST"
-      parts = [ partBS "text" (TE.encodeUtf8 text) ]
-      api = runRouteMP (Multipart parts) route
+  let route = Route [ "classifiers", classifierId clf, "classify" ]
+                    [ "text" =. text]
+                    "GET"
+      api = runRoute route
   in execAPI builder () api
 
 clfStatus :: NLC -> Classifier -> IO (Either (APIError ()) ClassifierStatus)
