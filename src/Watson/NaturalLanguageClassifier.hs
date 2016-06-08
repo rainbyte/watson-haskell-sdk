@@ -56,8 +56,15 @@ clfClassify :: NLC
             -> Classifier
             -> Text
             -> IO (Either (APIError ()) ClassifierOutput)
-clfClassify (NLC builder) clf text =
-  let route = Route [ "classifiers", classifierId clf, "classify" ]
+clfClassify nlc clf text =
+  clfClassify' nlc (classifierId clf) text
+
+clfClassify' :: NLC  -- ^ Service credentials
+             -> Text -- ^ Classifier id
+             -> Text -- ^ Text to classify
+             -> IO (Either (APIError ()) ClassifierOutput)
+clfClassify' (NLC builder) clfId text =
+  let route = Route [ "classifiers", clfId, "classify" ]
                     [ "text" =. text]
                     "GET"
       api = runRoute route
