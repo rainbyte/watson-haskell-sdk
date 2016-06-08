@@ -1,6 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 module Watson.NaturalLanguageClassifier
+  ( module Watson.NaturalLanguageClassifier
+  , module Watson.NaturalLanguageClassifier.Types)
   where
 
 import Watson.NaturalLanguageClassifier.Types
