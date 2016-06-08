@@ -17,7 +17,8 @@ library
   hs-source-dirs:      src
   exposed-modules:     Watson.NaturalLanguageClassifier
                      , Watson.RelationshipExtraction
-  other-modules:       Watson.Util.Multipart
+  other-modules: Watson.NaturalLanguageClassifier.Types
+               , Watson.Util.Multipart
   build-depends:       base >= 4.7 && < 5
                      , aeson
                      , api-builder
